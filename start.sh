@@ -11,8 +11,9 @@ mkdir -p input/sub-0/anat output
 
 #copy input t1 under input in bids format
 T1=`jq -r '.t1' config.json`
-rm -f input/sub-0/anat/sub-0_T1w.nii.gz
-ln -s $T1 input/sub-0/anat/sub-0_T1w.nii.gz
+#rm -f input/sub-0/anat/sub-0_T1w.nii.gz
+#ln -s $T1 input/sub-0/anat/sub-0_T1w.nii.gz (doesn't work on azure??)
+cp $T1 input/sub-0/anat/sub-0_T1w.nii.gz
 
 cat <<EOT > _run.sh
 #temporary patch until latest container is published
