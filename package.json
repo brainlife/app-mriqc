@@ -1,0 +1,16 @@
+{
+  "name": "app-mriqc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "start.sh",
+    "stop": "stop.sh",
+    "status": "status.sh"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+  }
+}
