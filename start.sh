@@ -20,7 +20,7 @@ cat <<EOT > _run.sh
 time singularity exec docker://poldracklab/mriqc bash -c "ldconfig && /usr/local/miniconda/bin/mriqc input output participant --no-sub"
 
 #eventually, I should just be able to 
-#time singularity run docker://poldracklab/mriqc input output participant --no-sub
+#time singularity run docker://poldracklab/mriqc:0.9.7 input output participant --no-sub
 
 #check for output files
 if [ -f output/reports/sub-0_T1w.html ]; then
