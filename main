@@ -2,25 +2,19 @@
 #PBS -l nodes=1:ppn=8,walltime=24:00:00
 #PBS -N app-mriqc
 
+module load singularity 2> /dev/null
 rm -rf output
 
-T1=`jq -r '.t1' config.json`
+set -e
+set -x
 
 #copy input t1 under input in bids format
 mkdir -p input/sub-0/anat output
-ln -s $T1 input/sub-0/anat/sub-0_T1w.nii.gz
-
-module load singularity 2> /dev/null
+ln -sf ../../../$(jq -r '.t1' config.json) input/sub-0/anat/sub-0_T1w.nii.gz
 
 #temporary patch until latest container is published
-#time singularity exec docker://poldracklab/mriqc bash -c "ldconfig && /usr/local/miniconda/bin/mriqc input output participant --no-sub"
-time singularity run docker://soichih/mriqc input output participant --no-sub
+#time singularity exec docker://poldracklab/mriqc:0.14.2 bash -c "/usr/local/miniconda/bin/mriqc input output participant --no-sub"
+time singularity exec docker://poldracklab/mriqc:0.14.2 mriqc input output participant --no-sub
+#time singularity run docker://brainlife/mriqc:1.1 input output participant --no-sub
 
-#check for output files
-if [ -f output/reports/sub-0_T1w.html ]; then
-    exit 0
-else
-	echo "reports directory is empty"
-	exit 1
-fi
 
