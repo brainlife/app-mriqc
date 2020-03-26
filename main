@@ -10,6 +10,15 @@ set -x
 #copy input t1 under input in bids format
 mkdir -p input/sub-0/anat output
 ln -sf ../../../$(jq -r '.t1' config.json) input/sub-0/anat/sub-0_T1w.nii.gz
+cat > input/dataset_description.json <<EOF
+{
+    "BIDSVersion": "1.0.0",
+    "Name": "Temp dataset",
+    "Authors": [
+        "Soichi Hayashi"
+    ],
+}
+EOF
 
 time singularity exec docker://poldracklab/mriqc:0.15.1 mriqc input output participant --no-sub
 
