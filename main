@@ -2,7 +2,6 @@
 #PBS -l nodes=1:ppn=8,walltime=24:00:00
 #PBS -N app-mriqc
 
-module load singularity 2> /dev/null
 rm -rf output
 
 set -e
@@ -12,9 +11,6 @@ set -x
 mkdir -p input/sub-0/anat output
 ln -sf ../../../$(jq -r '.t1' config.json) input/sub-0/anat/sub-0_T1w.nii.gz
 
-#temporary patch until latest container is published
-#time singularity exec docker://poldracklab/mriqc:0.14.2 bash -c "/usr/local/miniconda/bin/mriqc input output participant --no-sub"
-time singularity exec docker://poldracklab/mriqc:0.14.2 mriqc input output participant --no-sub
-#time singularity run docker://brainlife/mriqc:1.1 input output participant --no-sub
+time singularity exec docker://poldracklab/mriqc:0.15.1 mriqc input output participant --no-sub
 
 
