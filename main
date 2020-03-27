@@ -16,7 +16,7 @@ cat > input/dataset_description.json <<EOF
     "Name": "Temp dataset",
     "Authors": [
         "Soichi Hayashi"
-    ],
+    ]
 }
 EOF
 
