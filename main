@@ -21,7 +21,7 @@ fi
 
 #copy input under input in bids format
 mkdir -p input/sub-0/${TYPE} output regressors subject_html group_html subject_html/html group_html/html
-ln -sf ../../../$(jq -r '.input' config.json) input/sub-0/sub-0_${TYPE}.nii.gz
+ln -sf ../../../$(jq -r '.input' config.json) input/sub-0/${TYPE}/sub-0_${modality}.nii.gz
 
 cat > input/dataset_description.json <<EOF
 {
