@@ -36,10 +36,11 @@ EOF
 # run mriqc
 time singularity exec docker://nipreps/mriqc:${VERSION} mriqc input output participant --no-sub
 
+# generate regressors tsv
+python3 create_regressors_table.py
+
 # copy files to appropriate outputs
 [ -f ./output/sub-0/${TYPE}/subj-0_*.json ] && cp ./output/sub-0/${TYPE}/subj-0_*.json ./product.json
 [ -f ./output/group_${modality}.html ] && cp ./output/group_${modality}.html ./group_html/html/group_${modality}.html
 [ -f ./output/sub-0_${modality}.html ] && cp ./output/sub-0_${modality}.html ./subject_html/html/sub-0_${modality}.html
-[ -f ./output/group_${modality}.tsv ] && cp ./output/group_${modality}.tsv ./regressors/regressors.tsv
-
 
