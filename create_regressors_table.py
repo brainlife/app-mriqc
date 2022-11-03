@@ -19,8 +19,6 @@ def main():
     
     TYPE = config['type']
 
-    modality = glob.glob('./output/sub-0/%s/sub-0_*.json')
-
     outpath = './regressors/regressors.tsv'
 
     with open(glob.glob('./output/sub-0/%s/sub-0_*.json' %(TYPE))[0],'r') as iqm_file:
