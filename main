@@ -37,7 +37,7 @@ EOF
 time singularity exec docker://nipreps/mriqc:${VERSION} mriqc input output participant --no-sub
 
 # generate regressors tsv
-python3 create_regressors_table.py
+time singularity exec -e docker://brainlife/dipy:1.4.1 ./create_regressors_table.py
 
 # copy files to appropriate outputs
 [ -f ./output/sub-0/${TYPE}/subj-0_*.json ] && cp ./output/sub-0/${TYPE}/subj-0_*.json ./product.json
