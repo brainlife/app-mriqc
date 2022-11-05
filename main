@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -l nodes=1:ppn=8,walltime=24:00:00,vmem=30g
+#PBS -l nodes=1:ppn=4,walltime=6:00:00,vmem=30g
 #PBS -N app-mriqc
 
 rm -rf output
@@ -7,9 +7,22 @@ rm -rf output
 set -e
 set -x
 
-#copy input t1 under input in bids format
-mkdir -p input/sub-0/anat output
-ln -sf ../../../$(jq -r '.t1' config.json) input/sub-0/anat/sub-0_T1w.nii.gz
+VERSION=22.0.6
+
+# identify datatype
+TYPE=`jq -r '.type' config.json`
+if [[ $(jq -r '.input' config.json) == *"t1"* ]]; then
+    modality="T1w"
+elif [[ $(jq -r '.input' config.json) == *"t2"* ]]; then
+    modality="T2w"
+elif [[ $(jq -r '.input' config.json) == *"bold"* ]]; then
+    modality="bold"
+fi
+
+#copy input under input in bids format
+mkdir -p input/sub-0/${TYPE} output regressors subject_html group_html subject_html/html group_html/html
+ln -sf ../../../$(jq -r '.input' config.json) input/sub-0/${TYPE}/sub-0_${modality}.nii.gz
+
 cat > input/dataset_description.json <<EOF
 {
     "BIDSVersion": "1.0.0",
@@ -20,6 +33,14 @@ cat > input/dataset_description.json <<EOF
 }
 EOF
 
-time singularity exec docker://poldracklab/mriqc:0.15.1 mriqc input output participant --no-sub
+# run mriqc
+time singularity exec docker://nipreps/mriqc:${VERSION} mriqc input output participant --no-sub
 
+# generate regressors tsv
+time singularity exec -e docker://brainlife/dipy:1.4.1 ./create_regressors_table.py
+
+# copy files to appropriate outputs
+[ -f ./output/sub-0/${TYPE}/subj-0_*.json ] && cp ./output/sub-0/${TYPE}/subj-0_*.json ./product.json
+[ -f ./output/group_${modality}.html ] && cp ./output/group_${modality}.html ./group_html/html/group_${modality}.html
+[ -f ./output/sub-0_${modality}.html ] && cp ./output/sub-0_${modality}.html ./subject_html/html/sub-0_${modality}.html
 
