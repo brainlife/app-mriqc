@@ -10,7 +10,7 @@
   <a href="https://github.com/brainlife/app-mriqc/blob/master/LICENSE"><img src="https://img.shields.io/badge/License-MIT-lightgrey.svg" alt="MIT license"></a>
 </p>
 
-> 📍 **This branch, `22.0.6`, runs 3 brainlife.io Apps** that share the same code:
+> **This branch, `22.0.6`, runs 3 brainlife.io Apps** that share the same code:
 >
 > - Run MRIQC on Functional Data - FMRI ([doi:10.25663/brainlife.app.703](https://doi.org/10.25663/brainlife.app.703))
 > - Run MRIQC on Structural Data - T2w ([doi:10.25663/brainlife.app.702](https://doi.org/10.25663/brainlife.app.702))
@@ -18,11 +18,11 @@
 >
 > The other Apps in this repository are listed under **Versions on brainlife.io** below.
 
-## 🧠 At a glance
+## At a glance
 
 <!-- brainlife-app:begin (generated from the App manifest; edit the manifest, not this block) -->
 
-### 🧩 Run MRIQC on Functional Data - FMRI
+### Run MRIQC on Functional Data - FMRI
 
 > **Runs MRIQC 22.0.6 on a functional (BOLD) image to compute image quality metrics and produce an individual HTML QC report and a table of quality metrics.**
 
@@ -30,19 +30,19 @@ Wraps the functional (BOLD) image into a single-subject BIDS dataset and runs MR
 
 | | |
 |---|---|
-| 📥 **Inputs** | `neuro/func/task` |
-| 📤 **Outputs** | `raw` · `report/html` · `neuro/regressors` |
-| 🐳 **Container** | `nipreps/mriqc:22.0.6` |
-| ⚙️ **Resources** | 4 CPUs · 6 h walltime |
-| 🔗 **Run it** | [doi.org/10.25663/brainlife.app.703](https://doi.org/10.25663/brainlife.app.703) |
+| **Inputs** | `neuro/func/task` |
+| **Outputs** | `raw` · `report/html` · `neuro/regressors` |
+| **Container** | `nipreps/mriqc:22.0.6` |
+| **Resources** | 4 CPUs · 6 h walltime |
+| **Run it** | [doi.org/10.25663/brainlife.app.703](https://doi.org/10.25663/brainlife.app.703) |
 
-#### 📥 Inputs
+#### Inputs
 
 | Input | Datatype | Required | Description |
 |---|---|---|---|
 | `func` | `neuro/func/task` | yes | Functional (BOLD) image to evaluate. |
 
-#### 📤 Outputs
+#### Outputs
 
 | Output | Datatype | Description |
 |---|---|---|
@@ -51,7 +51,7 @@ Wraps the functional (BOLD) image into a single-subject BIDS dataset and runs MR
 | `regressors` | `neuro/regressors` | TSV table (regressors.tsv) of the image quality metrics computed by MRIQC. |
 
 <details>
-<summary><b>⚙️ Parameters</b> (1)</summary>
+<summary><b>Parameters</b> (1)</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
@@ -59,7 +59,7 @@ Wraps the functional (BOLD) image into a single-subject BIDS dataset and runs MR
 
 </details>
 
-### 🧩 Run MRIQC on Structural Data - T2w
+### Run MRIQC on Structural Data - T2w
 
 > **Runs MRIQC 22.0.6 on a T2-weighted image to compute image quality metrics and produce an individual HTML QC report and a table of quality metrics.**
 
@@ -67,19 +67,19 @@ Wraps the T2-weighted image into a single-subject BIDS dataset and runs MRIQC 22
 
 | | |
 |---|---|
-| 📥 **Inputs** | `neuro/anat/t2w` |
-| 📤 **Outputs** | `raw` · `report/html` · `neuro/regressors` |
-| 🐳 **Container** | `nipreps/mriqc:22.0.6` |
-| ⚙️ **Resources** | 4 CPUs · 6 h walltime |
-| 🔗 **Run it** | [doi.org/10.25663/brainlife.app.702](https://doi.org/10.25663/brainlife.app.702) |
+| **Inputs** | `neuro/anat/t2w` |
+| **Outputs** | `raw` · `report/html` · `neuro/regressors` |
+| **Container** | `nipreps/mriqc:22.0.6` |
+| **Resources** | 4 CPUs · 6 h walltime |
+| **Run it** | [doi.org/10.25663/brainlife.app.702](https://doi.org/10.25663/brainlife.app.702) |
 
-#### 📥 Inputs
+#### Inputs
 
 | Input | Datatype | Required | Description |
 |---|---|---|---|
 | `t2` | `neuro/anat/t2w` | yes | T2-weighted image to evaluate. |
 
-#### 📤 Outputs
+#### Outputs
 
 | Output | Datatype | Description |
 |---|---|---|
@@ -88,7 +88,7 @@ Wraps the T2-weighted image into a single-subject BIDS dataset and runs MRIQC 22
 | `regressors` | `neuro/regressors` | TSV table (regressors.tsv) of the image quality metrics computed by MRIQC. |
 
 <details>
-<summary><b>⚙️ Parameters</b> (1)</summary>
+<summary><b>Parameters</b> (1)</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
@@ -96,7 +96,7 @@ Wraps the T2-weighted image into a single-subject BIDS dataset and runs MRIQC 22
 
 </details>
 
-### 🧩 Run MRIQC on Structural Data - T1w
+### Run MRIQC on Structural Data - T1w
 
 > **Runs MRIQC 22.0.6 on a T1-weighted image to compute image quality metrics and produce an individual HTML QC report and a table of quality metrics.**
 
@@ -104,19 +104,19 @@ Wraps the T1-weighted image into a single-subject BIDS dataset and runs MRIQC 22
 
 | | |
 |---|---|
-| 📥 **Inputs** | `neuro/anat/t1w` |
-| 📤 **Outputs** | `raw` · `report/html` · `neuro/regressors` |
-| 🐳 **Container** | `nipreps/mriqc:22.0.6` |
-| ⚙️ **Resources** | 4 CPUs · 6 h walltime |
-| 🔗 **Run it** | [doi.org/10.25663/brainlife.app.701](https://doi.org/10.25663/brainlife.app.701) |
+| **Inputs** | `neuro/anat/t1w` |
+| **Outputs** | `raw` · `report/html` · `neuro/regressors` |
+| **Container** | `nipreps/mriqc:22.0.6` |
+| **Resources** | 4 CPUs · 6 h walltime |
+| **Run it** | [doi.org/10.25663/brainlife.app.701](https://doi.org/10.25663/brainlife.app.701) |
 
-#### 📥 Inputs
+#### Inputs
 
 | Input | Datatype | Required | Description |
 |---|---|---|---|
 | `t1` | `neuro/anat/t1w` | yes | T1-weighted image to evaluate. |
 
-#### 📤 Outputs
+#### Outputs
 
 | Output | Datatype | Description |
 |---|---|---|
@@ -125,7 +125,7 @@ Wraps the T1-weighted image into a single-subject BIDS dataset and runs MRIQC 22
 | `regressors` | `neuro/regressors` | TSV table (regressors.tsv) of the image quality metrics computed by MRIQC. |
 
 <details>
-<summary><b>⚙️ Parameters</b> (1)</summary>
+<summary><b>Parameters</b> (1)</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
@@ -135,7 +135,7 @@ Wraps the T1-weighted image into a single-subject BIDS dataset and runs MRIQC 22
 
 <!-- brainlife-app:end -->
 
-## 🏷️ Versions on brainlife.io
+## Versions on brainlife.io
 
 One App per input datatype, built from a branch of this repository.
 
@@ -146,9 +146,9 @@ One App per input datatype, built from a branch of this repository.
 | **Run MRIQC on Structural Data - T2w** (this branch) | `neuro/anat/t2w` | 22.0.6 | [`22.0.6`](https://github.com/brainlife/app-mriqc/tree/22.0.6) | [doi:10.25663/brainlife.app.702](https://doi.org/10.25663/brainlife.app.702) | current |
 | MRIQC | `neuro/anat/t1w` | 0.14.2 | [`0.14.2`](https://github.com/brainlife/app-mriqc/tree/0.14.2) | [doi:10.25663/bl.app.52](https://doi.org/10.25663/bl.app.52) | deprecated |
 
-## 🚀 Running the App
+## Running the App
 
-### ☁️ On brainlife.io
+### On brainlife.io
 
 Open the App for your datatype from the table above, choose the image from your project and press **Execute**. The App wraps the image into a single-subject BIDS dataset and runs [MRIQC](https://mriqc.readthedocs.io) 22.0.6 at the participant level (there is no group-level stage). It outputs:
 
@@ -158,7 +158,7 @@ Open the App for your datatype from the table above, choose the image from your 
 
 Use it to screen data quality before preprocessing. The `type` option (`anat` or `func`) is fixed for each App.
 
-### 💻 Locally
+### Locally
 
 You need [Singularity/Apptainer](https://apptainer.org/) and [`jq`](https://jqlang.github.io/jq/). MRIQC and the Python step that builds the regressors table run inside containers.
 
@@ -180,7 +180,7 @@ You need [Singularity/Apptainer](https://apptainer.org/) and [`jq`](https://jqla
    ./main
    ```
 
-## 📦 Outputs
+## Outputs
 
 ```text
 output/                    full MRIQC output (derivatives, IQM JSON, reports)
@@ -189,7 +189,7 @@ regressors/regressors.tsv  image quality metrics as a table
 product.json               IQMs shown on brainlife.io
 ```
 
-## 📚 Citing
+## Citing
 
 > [!TIP]
 > If you use this App in your work, please cite the App, the software it builds on and brainlife.io (below). GitHub's **Cite this repository** button gives the App citation in APA and BibTeX.
@@ -201,12 +201,12 @@ product.json               IQMs shown on brainlife.io
 - Hayashi S, Caron BA, Heinsfeld AS, et al. brainlife.io: a decentralized and open-source cloud platform to support neuroscience research. *Nature Methods* 21:809–813 (2024). [doi:10.1038/s41592-024-02237-2](https://doi.org/10.1038/s41592-024-02237-2)
 - Avesani P, McPherson B, Hayashi S, et al. The open diffusion data derivatives, brain data upcycling via integrated publishing of derivatives and reproducible open cloud services. *Scientific Data* 6:69 (2019). [doi:10.1038/s41597-019-0073-y](https://doi.org/10.1038/s41597-019-0073-y)
 
-## 👥 Authors
+## Authors
 
 - Soichi Hayashi
 - Brad Caron
 
-## 💰 Funding
+## Funding
 
 [![Wellcome-226486/Z/22/Z](https://img.shields.io/badge/Wellcome-226486%2FZ%2F22%2FZ-purple.svg)](https://wellcome.org/)
 [![NIH-NINDS-U24NS140384](https://img.shields.io/badge/NIH_NINDS-U24NS140384-green.svg)](https://reporter.nih.gov/project-details/11261037)
@@ -225,6 +225,6 @@ product.json               IQMs shown on brainlife.io
 
 <sub>brainlife.io is publicly funded, and acknowledging that support helps keep it running. This App was developed with support from Wellcome, the U.S. National Institutes of Health (including the BRAIN Initiative BRAIN CONNECTS program: The Axonal Projectome EXchange, U24NS140384, and the Center for Mesoscale Connectomics, UM1NS132207) and the U.S. National Science Foundation.</sub>
 
-## ⚖️ License
+## License
 
 [MIT](https://github.com/brainlife/app-mriqc/blob/master/LICENSE). MRIQC itself is distributed under its own license.
